@@ -1,0 +1,33 @@
+services:
+  # Django Backend API Web Service
+  - type: web
+    name: cinetrack-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: bash build.sh
+    startCommand: gunicorn server.wsgi --log-file -
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+
+  # React Frontend Static Site
+  - type: web
+    name: cinetrack-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: cinetrack-backend
+          property: host

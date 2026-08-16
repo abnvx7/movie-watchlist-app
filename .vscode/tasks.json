@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Django Backend",
+      "type": "shell",
+      "command": ".\\backend\\venv\\Scripts\\python.exe manage.py runserver 0.0.0.0:8000",
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "servers",
+        "panel": "dedicated",
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Start React Frontend",
+      "type": "shell",
+      "command": "npm.cmd run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "servers",
+        "panel": "dedicated",
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Start Full App (Backend + Frontend)",
+      "dependsOn": ["Start Django Backend", "Start React Frontend"],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
