@@ -162,3 +162,4 @@ cd backend
 .\venv\Scripts\python.exe manage.py test watchlist
 ```
 *(All 9 test suites pass: testing user registration, JWT generation, queryset scoping, rating update, status toggle, and cross-user data isolation).*"# moviewatch" 
+"# moviewatch" 
