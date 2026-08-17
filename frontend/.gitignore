@@ -25,3 +25,9 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+staticfiles/
