@@ -9,14 +9,17 @@ import {
   Sparkles, 
   Filter, 
   ArrowUpDown,
-  RefreshCw
+  RefreshCw,
+  UploadCloud,
+  ArrowUpRight
 } from 'lucide-react';
+import { GitHubIcon } from '../components/Icons';
 import apiClient from '../api/axios';
 import MediaCard from '../components/MediaCard';
 import MediaModal from '../components/MediaModal';
 import StatsBar from '../components/StatsBar';
 
-const WatchlistDashboard = ({ isModalOpen, setIsModalOpen }) => {
+const WatchlistDashboard = ({ isModalOpen, setIsModalOpen, onOpenDeployModal }) => {
   const [mediaList, setMediaList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -389,6 +392,30 @@ const WatchlistDashboard = ({ isModalOpen, setIsModalOpen }) => {
         </div>
       )}
 
+      {/* Footer Deploy & Sync Callout */}
+      <div className="dashboard-deploy-bar">
+        <div className="dashboard-deploy-content">
+          <div className="dashboard-deploy-icon">
+            <GitHubIcon size={20} />
+          </div>
+          <div>
+            <div className="dashboard-deploy-title">Direct GitHub Sync & Vercel Auto-Deploy</div>
+            <div className="dashboard-deploy-desc">
+              Push your complete project files to GitHub and deploy live on Vercel with 1 click.
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="btn btn-secondary btn-sm"
+          onClick={onOpenDeployModal}
+        >
+          <UploadCloud size={15} />
+          <span>Launch Hub</span>
+          <ArrowUpRight size={14} />
+        </button>
+      </div>
+
       {/* Add / Edit Media Modal */}
       <MediaModal
         isOpen={isModalOpen}
@@ -404,3 +431,4 @@ const WatchlistDashboard = ({ isModalOpen, setIsModalOpen }) => {
 };
 
 export default WatchlistDashboard;
+

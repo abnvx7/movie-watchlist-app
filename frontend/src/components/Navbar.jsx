@@ -1,8 +1,9 @@
 import React from 'react';
-import { Clapperboard, Plus, LogOut, User as UserIcon } from 'lucide-react';
+import { Clapperboard, Plus, LogOut, UploadCloud } from 'lucide-react';
+import { GitHubIcon } from './Icons';
 import { useAuth } from '../context/AuthContext';
 
-const Navbar = ({ onOpenAddModal }) => {
+const Navbar = ({ onOpenAddModal, onOpenDeployModal }) => {
   const { user, logout } = useAuth();
 
   return (
@@ -17,6 +18,19 @@ const Navbar = ({ onOpenAddModal }) => {
         </div>
 
         <div className="navbar-actions">
+          {/* Direct GitHub & Vercel Deploy Button */}
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm nav-deploy-btn"
+            onClick={onOpenDeployModal}
+            id="nav-deploy-modal-btn"
+            title="Push to GitHub & Deploy on Vercel"
+          >
+            <GitHubIcon size={15} />
+            <span>Push to GitHub</span>
+            <span className="nav-vercel-pill">▲ Vercel</span>
+          </button>
+
           <button
             type="button"
             className="btn btn-primary btn-sm"
@@ -52,3 +66,4 @@ const Navbar = ({ onOpenAddModal }) => {
 };
 
 export default Navbar;
+

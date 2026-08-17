@@ -1083,3 +1083,709 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================================
+   GitHub Sync & Vercel Auto-Deploy Hub Styles
+   ======================================================== */
+
+.github-deploy-modal {
+  max-width: 720px;
+  width: 95%;
+}
+
+.modal-header-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.deploy-header-icon-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-surface-hover);
+  border: 1px solid var(--border-highlight);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+}
+
+.deploy-icon-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-highlight);
+}
+
+.icon-github {
+  color: #f3f4f6;
+}
+
+.icon-vercel {
+  color: #ffffff;
+}
+
+/* Deploy Tabs */
+.deploy-tabs {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(10, 14, 23, 0.6);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+}
+
+.deploy-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.deploy-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-elevated);
+}
+
+.deploy-tab.active {
+  color: var(--accent-gold);
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+  font-weight: 600;
+}
+
+/* Deploy Modal Body & Cards */
+.deploy-modal-body {
+  padding: 1.25rem 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.deploy-section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deploy-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  transition: border-color var(--transition-fast);
+}
+
+.deploy-card:hover {
+  border-color: var(--border-highlight);
+}
+
+.deploy-card.highlight-card {
+  background: linear-gradient(135deg, rgba(26, 34, 52, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.deploy-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deploy-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deploy-step-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-gold);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.deploy-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.deploy-instruction {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
+}
+
+.deploy-token-input-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.deploy-token-input-group .form-input {
+  flex: 1;
+  min-width: 240px;
+}
+
+.deploy-token-help {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.deploy-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-weight: 500;
+}
+
+.deploy-link:hover {
+  text-decoration: underline;
+}
+
+/* User Profile Banner */
+.deploy-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+}
+
+.deploy-user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  object-fit: cover;
+}
+
+.deploy-user-details {
+  flex: 1;
+  min-width: 180px;
+}
+
+.deploy-user-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.deploy-user-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.deploy-user-handle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.deploy-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  flex-wrap: wrap;
+}
+
+/* Mode Toggle */
+.deploy-mode-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg-surface);
+  padding: 0.2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.deploy-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.deploy-mode-btn.active {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.deploy-repo-select-wrap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.deploy-repo-select-wrap select {
+  flex: 1;
+}
+
+.deploy-new-repo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.deploy-privacy-row {
+  margin-top: 0.25rem;
+}
+
+.deploy-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.deploy-commit-grid {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.deploy-bundle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deploy-bundle-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.deploy-file-tree {
+  margin-top: 0.65rem;
+  max-height: 180px;
+  overflow-y: auto;
+  background: #080c14;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-family: monospace;
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.deploy-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.deploy-file-item:hover {
+  background: var(--bg-surface-hover);
+}
+
+.deploy-file-path {
+  color: #93c5fd;
+}
+
+/* Progress & Push Actions */
+.deploy-progress-container {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-surface);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.deploy-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold) 0%, #10b981 100%);
+  transition: width 0.3s ease;
+}
+
+.deploy-action-row {
+  display: flex;
+  justify-content: center;
+}
+
+.deploy-submit-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Terminal Emulator */
+.deploy-terminal {
+  margin-top: 1rem;
+  background: #080c14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.deploy-terminal-header {
+  background: #111827;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.deploy-terminal-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.deploy-terminal-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.deploy-terminal-title {
+  font-size: 0.72rem;
+  font-family: monospace;
+  color: var(--text-muted);
+}
+
+.deploy-terminal-body {
+  padding: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.log-line {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.log-time {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.log-info .log-msg { color: #cbd5e1; }
+.log-success .log-msg { color: #34d399; font-weight: 600; }
+.log-warning .log-msg { color: #fbbf24; }
+.log-error .log-msg { color: #f87171; font-weight: 600; }
+
+/* Success Card */
+.deploy-success-card {
+  margin-top: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.deploy-success-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.deploy-success-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.deploy-success-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.deploy-success-actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* Vercel Steps Guide */
+.deploy-section-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.deploy-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deploy-guide-step {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--accent-gold);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.step-content p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.deploy-code-snippet {
+  margin-top: 0.45rem;
+  background: #080c14;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #93c5fd;
+}
+
+.deploy-vercel-button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Terminal & CLI Box */
+.deploy-cli-box {
+  background: #080c14;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.deploy-cli-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.65rem;
+  background: #111827;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.deploy-cli-code {
+  padding: 0.75rem;
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+.deploy-local-git-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.deploy-git-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.deploy-git-remotes-text {
+  background: #080c14;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* Modal Footer & Buttons */
+.deploy-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deploy-footer-branding {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Navbar Deploy Button */
+.nav-deploy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--text-primary);
+}
+
+.nav-deploy-btn:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: var(--accent-gold);
+}
+
+.nav-vercel-pill {
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Auth Top Bar */
+.auth-wrapper-with-tools {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.auth-top-bar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 10;
+}
+
+/* Dashboard Deploy Banner */
+.dashboard-deploy-bar {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, rgba(26, 34, 52, 0.7) 0%, rgba(17, 24, 39, 0.7) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-deploy-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.dashboard-deploy-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboard-deploy-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.dashboard-deploy-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.spinner-sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}

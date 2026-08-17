@@ -232,3 +232,62 @@ class SeedDataView(APIView):
             'message': f'Successfully seeded {created_count} media items.',
             'count': created_count
         })
+
+
+class GitHubPushView(APIView):
+    """
+    Endpoint providing deployment & repository sync status and local Git push automation.
+    """
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        import subprocess
+        try:
+            remotes = subprocess.check_output(['git', 'remote', '-v'], text=True, stderr=subprocess.STDOUT)
+            status_output = subprocess.check_output(['git', 'status', '--short'], text=True, stderr=subprocess.STDOUT)
+            branch = subprocess.check_output(['git', 'branch', '--show-current'], text=True, stderr=subprocess.STDOUT).strip()
+            return Response({
+                'branch': branch,
+                'remotes': remotes,
+                'modified_files': status_output.splitlines(),
+                'git_available': True,
+                'vercel_deploy_url': 'https://vercel.com/new',
+            })
+        except Exception as e:
+            return Response({
+                'git_available': False,
+                'message': str(e),
+                'vercel_deploy_url': 'https://vercel.com/new',
+            })
+
+    def post(self, request):
+        import subprocess
+        repo_url = request.data.get('repo_url')
+        branch = request.data.get('branch', 'main')
+        commit_msg = request.data.get('commit_message', 'feat: CineTrack Movie & TV Watchlist with Vercel Deploy')
+
+        try:
+            if repo_url:
+                subprocess.run(['git', 'remote', 'remove', 'origin'], check=False, stderr=subprocess.DEVNULL)
+                subprocess.run(['git', 'remote', 'add', 'origin', repo_url.strip()], check=True)
+
+            subprocess.run(['git', 'add', '.'], check=True)
+            subprocess.run(['git', 'commit', '-m', commit_msg], check=False)
+            push_res = subprocess.run(['git', 'push', '-u', 'origin', branch], capture_output=True, text=True)
+
+            if push_res.returncode == 0:
+                return Response({
+                    'success': True,
+                    'message': 'Code pushed to GitHub successfully!',
+                    'output': push_res.stdout,
+                })
+            else:
+                return Response({
+                    'success': False,
+                    'error': push_res.stderr or push_res.stdout,
+                }, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({
+                'success': False,
+                'error': str(e),
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -79,13 +79,30 @@ movie-watchlist-app/
 
 ---
 
-## 🌐 Production Deployment Guide
+## 🌐 Live Production Deployments & Options
 
-### Option 1: 1-Click Render Blueprint (Recommended)
+### ⚡ Live Vercel Deployment
+- **Production Web App**: **[https://frontend-phi-wheat-45.vercel.app](https://frontend-phi-wheat-45.vercel.app)**
+- **Vercel Inspector**: **[Vercel Project Dashboard](https://vercel.com/abhinavk25cs-1656s-projects/frontend)**
+
+---
+
+### Option 1: In-Browser Direct GitHub Push & Auto-Deploy (No Git CLI Required!)
+CineTrack includes a built-in **GitHub Push & Vercel Deploy Hub** accessible directly inside the web app:
+1. Open CineTrack in your browser.
+2. Click **"Push to GitHub"** in the top navigation bar.
+3. Connect your GitHub Personal Access Token (PAT with `repo` scope).
+4. Select an existing repo or click **"New Repo"** to create `movie-watchlist-app` in 1 click.
+5. Click **"Direct Push to GitHub Now"** — the web app commits and pushes all project files (Frontend, Backend, Docker, Vercel configs) via the GitHub Git Database REST API in real time.
+6. Click **"Deploy on Vercel"** for 1-click cloud provisioning.
+
+---
+
+### Option 2: 1-Click Render Blueprint
 This repository includes a ready-to-use [`render.yaml`](file:///render.yaml) configuration that automatically provisions and connects both the **Django REST Backend** and the **React Vite Frontend**.
 
 1. Push your code to your GitHub repository:
-   - Double-click [`push_to_github.bat`](file:///push_to_github.bat) or run `git push origin main`.
+   - Use the in-app Web Hub, double-click [`push_to_github.bat`](file:///push_to_github.bat), or run `git push origin main`.
 2. Go to **[Render.com](https://render.com)** and log in.
 3. Click **"New +"** &rarr; **"Blueprint"**.
 4. Select your GitHub repository (`abnvx7/movie-watchlist-app`).
@@ -94,7 +111,7 @@ This repository includes a ready-to-use [`render.yaml`](file:///render.yaml) con
 
 ---
 
-### Option 2: Deploy Frontend on Vercel & Backend on Render / Railway
+### Option 3: Deploy Frontend on Vercel & Backend on Render / Railway
 
 #### Deploy Backend (Render / Railway):
 1. **Root Directory**: `backend`
@@ -115,7 +132,7 @@ This repository includes a ready-to-use [`render.yaml`](file:///render.yaml) con
 
 ---
 
-### Option 3: Deploy with Docker & Docker Compose
+### Option 4: Deploy with Docker & Docker Compose
 To run or deploy the entire stack using Docker:
 
 ```bash
@@ -128,6 +145,7 @@ docker-compose up --build -d
 ---
 
 ## 🚀 How to Run Locally
+
 
 ### Option 1: Using the Batch Scripts
 1. Double-click `start_all.bat` in the project root to run both servers concurrently.
