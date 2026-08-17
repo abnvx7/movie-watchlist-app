@@ -88,7 +88,7 @@ This repository includes a ready-to-use [`render.yaml`](file:///render.yaml) con
    - Double-click [`push_to_github.bat`](file:///push_to_github.bat) or run `git push origin main`.
 2. Go to **[Render.com](https://render.com)** and log in.
 3. Click **"New +"** &rarr; **"Blueprint"**.
-4. Select your GitHub repository (`abnvx7/movie`).
+4. Select your GitHub repository (`abnvx7/movie-watchlist-app`).
 5. Render will automatically read `render.yaml`, configure the backend service, build the static frontend, and link the environment variables.
 6. Click **"Apply"** — both the backend API and frontend will build and go live!
 
