@@ -71,17 +71,19 @@ if DATABASE_URL:
             'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
         }
     except Exception:
+        db_path = Path('/tmp/db.sqlite3') if os.environ.get('VERCEL') else BASE_DIR / 'db.sqlite3'
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
+                'NAME': db_path,
             }
         }
 else:
+    db_path = Path('/tmp/db.sqlite3') if os.environ.get('VERCEL') else BASE_DIR / 'db.sqlite3'
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': db_path,
         }
     }
 
@@ -125,13 +127,4 @@ SIMPLE_JWT = {
 
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-
-import dj_database_url
-
-DATABASES = {
-    "default": dj_database_url.config(
-        default="sqlite:///db.sqlite3",
-        conn_max_age=600
-    )
-}
+CORS_ALLOW_CREDENTIALS = True
